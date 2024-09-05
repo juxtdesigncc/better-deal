@@ -13,7 +13,7 @@
   "commands": [
     {
       "name": "index",
-      "title": "Add Better Deal",
+      "title": "Calculate Better Deal",
       "description": "Add new deal to compare",
       "mode": "view",
       "arguments": [
@@ -39,7 +39,7 @@
     },
     {
       "name": "view",
-      "title": "View Better Deal",
+      "title": "View Better Deal History",
       "description": "View new deal to compare",
       "mode": "view"
     }
