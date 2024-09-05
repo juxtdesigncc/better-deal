@@ -38,7 +38,7 @@ export default function Command(props: LaunchProps) {
   }, []);
 
   const addNewItem = (newItem: Item) => {
-    setItems(prevItems => {
+    setItems((prevItems) => {
       const updatedItems = [newItem, ...prevItems].slice(0, 5); // Keep only the 5 most recent items
       cache.set("items", JSON.stringify(updatedItems));
       return updatedItems;
@@ -46,7 +46,7 @@ export default function Command(props: LaunchProps) {
   };
 
   const deleteItem = (index: number) => {
-    setItems(prevItems => {
+    setItems((prevItems) => {
       const updatedItems = prevItems.filter((_, i) => i !== index);
       cache.set("items", JSON.stringify(updatedItems));
       return updatedItems;
@@ -101,12 +101,8 @@ export default function Command(props: LaunchProps) {
             ]}
             actions={
               <ActionPanel>
+                <Action title="Delete This Record" icon={Icon.Trash} onAction={() => deleteItem(index)} />
                 <Action
-                  title="Delete This Record"
-                  icon={Icon.Trash}
-                  onAction={() => deleteItem(index)}
-                />
-                 <Action
                   title="Clear All Records"
                   icon={Icon.Trash}
                   onAction={() => {

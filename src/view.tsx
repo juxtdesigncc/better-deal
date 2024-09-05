@@ -1,5 +1,6 @@
 import { Cache, List, Icon, ActionPanel, Action, showToast, Toast } from "@raycast/api";
 import { useState, useEffect } from "react";
+import { Item } from "./index";
 
 const cache = new Cache();
 
@@ -13,7 +14,7 @@ export default function View() {
   }, []);
 
   const deleteItem = (index: number) => {
-    setItems(prevItems => {
+    setItems((prevItems) => {
       const updatedItems = prevItems.filter((_, i) => i !== index);
       cache.set("items", JSON.stringify(updatedItems));
       return updatedItems;
@@ -39,11 +40,7 @@ export default function View() {
             ]}
             actions={
               <ActionPanel>
-                <Action
-                  title="Delete This Record"
-                  icon={Icon.Trash}
-                  onAction={() => deleteItem(index)}
-                />
+                <Action title="Delete This Record" icon={Icon.Trash} onAction={() => deleteItem(index)} />
               </ActionPanel>
             }
           />
