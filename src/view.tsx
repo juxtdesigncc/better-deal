@@ -31,7 +31,7 @@ export default function View() {
       <List.Section title="Previous Records">
         {items.map((item, index) => (
           <List.Item
-          key={index}
+            key={index}
             title={`$${item.price.toFixed(2)} for ${item.quantity}`}
             subtitle={`${new Date(item.updateTime).toLocaleString()}`}
             accessories={[

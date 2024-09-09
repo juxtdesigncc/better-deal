@@ -3,7 +3,14 @@ import { useState, useEffect } from "react";
 
 const cache = new Cache();
 
-export type Item = { price: number; quantity: number; unitSize?: number; unitCost: number; perUnitSize?: number, updateTime: string;  };
+export type Item = {
+  price: number;
+  quantity: number;
+  unitSize?: number;
+  unitCost: number;
+  perUnitSize?: number;
+  updateTime: string;
+};
 
 export default function Command(props: LaunchProps) {
   const price = parseFloat(props.arguments.price);
@@ -60,7 +67,7 @@ export default function Command(props: LaunchProps) {
 
   // Add the new item only once when the component mounts
   useEffect(() => {
-    const newItem = { price, quantity, unitSize, unitCost, perUnitSize, updateTime: new Date().toISOString()  };
+    const newItem = { price, quantity, unitSize, unitCost, perUnitSize, updateTime: new Date().toISOString() };
     addNewItem(newItem);
   }, []); // Empty dependency array ensures this runs only once
 
